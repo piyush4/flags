@@ -1,13 +1,253 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+select {
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+}
+input {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.bold {
+  font-weight: bold;
+}
+.header {
+  height: 10vh;
+  padding: 0.7em 1.5em;
+  background: hsl(0, 0, 100%);
+  border-bottom: 3px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  -webkit-box-shadow: 0px 1px 1px #f0f0f0;
+  -moz-box-shadow: 0px 1px 1px #f0f0f0;
+  box-shadow: 0px 1px 1px #f0f0f0;
+}
+.header h1 {
+  font-size: 1em;
+}
+
+.main-content {
+  min-height: 90vh;
+  padding-top: 2em;
+  position: relative;
+  background: hsl(0, 0%, 98%);
+}
+.search-and-filter {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+}
+.search-bar {
+  padding: 1em;
+  font-family: FontAwesome, Arial, Helvetica, sans-serif;
+  border-radius: 0.5rem;
+  border: 2px solid #f0f0f0;
+  margin-bottom: 2em;
+}
+.select {
+  width: 50%;
+}
+.filter {
+  background: hsl(0, 0%, 100%);
+  width: 100%;
+  padding: 1em;
+  border: 2px solid #f0f0f0;
+  border-radius: 0.5rem;
+  margin-bottom: 2em;
+}
+.filter > option {
+  width: 50%;
+}
+.country-collections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-gap: 1.5em;
+  align-items: stretch;
+  justify-items: stretch;
+  width: 90%;
+  margin: 0 auto;
+}
+.countryInfo {
+  max-width: 300px;
+  background: hsl(0, 0%, 100%);
+  margin: 1em auto;
+  border: 3px solid #f0f0f0;
+  border-radius: 0.5rem;
+}
+.countryInfo h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+.countryInfo img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+.country-name-pop {
+  padding: 1.5em;
+}
+.hidden {
+  display: none;
+}
+
+/*Country detail styling */
+
+.country-detail {
+  display: grid;
+  width: 90%;
+  padding-top: 2em;
+  margin: 0em auto;
+}
+.country-detail img {
+  width: 100%;
+  height: 200px;
+}
+.link-container {
+  width: 90%;
+  margin: 2em auto;
+}
+.back-link {
+  width: 70px;
+  padding: 0.5em 1.25em;
+  border: 2px solid #f0f0f0;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  border-radius: 0.3rem;
+}
+.list-bordering-countries {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bordering-countries {
+  margin: 0.5em;
+  margin-left: 0em;
+  border: 2px solid #f0f0f0;
+  box-shadow: 0 3px 10px rgb(0, 0, 0 /0.2);
+  padding: 0.2em 0.7em;
+}
+.list-bordering-countries {
+  line-height: 2em;
+}
+.demographic-detail {
+  margin-bottom: 2rem;
+}
+.currency-language {
+  margin-bottom: 2em;
+}
+
+.list-bordering-countries {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+@media (min-width: 500px) {
+  .header h1 {
+    font-size: 1.5em;
+  }
+}
+@media (min-width: 750px) {
+  .header {
+    padding: 0 2em;
+  }
+  .search-and-filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .search-bar {
+    width: 50%;
+  }
+  .select {
+    width: 30%;
+  }
+  .country-detail {
+    grid-template-columns: 41% 55%;
+    align-items: center;
+    justify-items: center;
+    margin: 3em auto;
+    grid-gap: 2em;
+  }
+  .country-detail img {
+    width: 100%;
+    height: 90%;
+    object-fit: cover;
+  }
+  .country-detail h2 {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  .text-details {
+    display: grid;
+    grid-template-areas:
+      "col1 col2"
+      "col3 col3";
+    grid-gap: 1.5em;
+    width: 100%;
+    justify-items: start;
+  }
+  .demographic-detail {
+    grid-area: col1;
+  }
+  .currency-language {
+    grid-area: col2;
+  }
+  .section-bordering-countries {
+    grid-area: col3;
+    display: grid;
+    grid-template-columns: 30% 65%;
+    grid-gap: 0.5em;
+    height: 30px;
+    overflow-y: visible;
+    align-items: baseline;
+  }
+  .border-heading {
+    display: inline;
+    margin: 0;
+    margin-right: 0.5em;
+  }
+}
+.hidden {
+  display: none;
+}
+.dark {
+  background: hsl(207, 26%, 17%);
+  color: hsl(0, 0%, 100%);
+  border: none;
+  box-shadow: none;
+}
+.dark-element {
+  background: hsl(209, 23%, 23%);
 }

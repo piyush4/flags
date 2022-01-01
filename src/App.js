@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+import Home from './components/Home'
+import Header from './components/Header'
+import CountryDetail from './components/CountryDetail'
+
+import {Link, Routes, Route} from 'react-router-dom'
 
 function App() {
+    
+    const [countryList, setCountryList] = React.useState([])
+    React.useEffect(()=>{
+            fetch('https://restcountries.com/v2/all')
+            .then(res => res.json())
+            .then(data => {
+                setCountryList(data)
+            })
+        },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <React.Fragment>
+      <Header/>
+      <Routes>
+        <Route exact path="/" element={<Home countryList={countryList}/>}></Route>
+        <Route path= "/:countryId" element={<CountryDetail/>}></Route>
+      </Routes>
+      
+    </React.Fragment>
+    
+
+  )
 }
 
 export default App;
