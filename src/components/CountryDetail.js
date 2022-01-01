@@ -8,11 +8,11 @@ function CountryDetail(props){
     const [currencies, setCurrencies] = React.useState([])
 
     const {theme} = React.useContext(Context)
-
+    console.log(countryId)
     React.useEffect(()=>{
-        fetch(`https://restcountries.com/v2/name/${countryId}?fullText=true`)
+        fetch(`https://restcountries.com/v2/alpha/${countryId}`)
         .then(res =>res.json())
-        .then(([data]) => setCountry(data))
+        .then(data => setCountry(data))
     },[])
     
     React.useEffect(()=>{
@@ -38,7 +38,7 @@ function CountryDetail(props){
     const classToAdd = listBorderingCountries.length === 0 ? "hidden":""
 
     return (    
-            <main className={`${theme} main-content`} role="main content">
+            <main className={`${theme} main-content`} role="main">
                 <Link to="/"><p className={`link-container`}><span className={`${theme} back-link`}><i className="fas fa-arrow-left" aria-hidden="true"></i> &nbsp; Back</span></p></Link>
                 <div className="country-detail">
                     <img src={country.flags.svg} alt={`${country.name} flag`}/>

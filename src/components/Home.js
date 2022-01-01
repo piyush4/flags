@@ -16,11 +16,12 @@ function Home(props){
     function handleRegionSelect(value){
         setSearchRegion(value)
     }
-    const flagItems = countryList.filter(country=>country.name.includes(searchQuery) && country.region.includes(searchRegion)).map(country =>{
+    const flagItems = countryList.filter(country=>country.name.includes(searchQuery) && country.region.includes(searchRegion))
+    .map(country =>{
         return(   
                 <Link 
                     key={country.name}
-                    to={`/${country.name}`}>
+                    to={`/${country.alpha3Code}`}>
                 <Flag 
                     flagImg={country.flags.svg}
                     countryName ={country.name}
@@ -31,7 +32,7 @@ function Home(props){
                 </Link>)
     })
     return(
-        <main className={`search-and-flags main-content ${theme}`} role="main content">
+        <main className={`search-and-flags main-content ${theme}`} role="main">
             <SearchBar searchQuery = {searchQuery} handleQuery = {handleQuery}
                 handleRegionSelect = {handleRegionSelect}/>
             <div className="country-collections">
