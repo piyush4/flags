@@ -32,14 +32,14 @@ function CountryDetail(props){
     
     
     const listBorderingCountries = borderingCountries.map(borderingCountry =>{
-        return(<p className="bordering-countries" key={borderingCountry}>{borderingCountry}</p>)
+        return(<p className={`bordering-countries ${theme} ${theme}-element`} key={borderingCountry}>{borderingCountry}</p>)
     })
     
     const classToAdd = listBorderingCountries.length === 0 ? "hidden":""
 
     return (    
             <main className={`${theme} main-content`} role="main">
-                <Link to="/"><p className={`link-container`}><span className={`${theme} back-link`}><i className="fas fa-arrow-left" aria-hidden="true"></i> &nbsp; Back</span></p></Link>
+                <Link to="/"><p className={`link-container`}><span className={`${theme} back-link ${theme}-element`}><i className="fas fa-arrow-left" aria-hidden="true"></i> &nbsp; Back</span></p></Link>
                 <div className="country-detail">
                     <img src={country.flags.svg} alt={`${country.name} flag`}/>
                     <div className="country-text-detail">    

@@ -37,7 +37,7 @@ a {
   color: inherit;
 }
 .bold {
-  font-weight: bold;
+  font-weight: 500;
 }
 .header {
   height: 10vh;
@@ -250,4 +250,6 @@ a {
 }
 .dark-element {
   background: hsl(209, 23%, 23%);
+  border: none;
+  box-shadow: none;
 }
